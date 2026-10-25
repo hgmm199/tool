@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212">
+
+    <!-- Thanh Địa Chỉ URL & Nút Điều Hướng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#1E1E1E">
+
+        <EditText
+            android:id="@+id/urlInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nhập địa chỉ URL (vd: google.com)"
+            android:textColorHint="#888888"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:background="#2C2C2C"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:inputType="textUri" />
+
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đi"
+            android:layout_marginStart="4dp" />
+
+        <Button
+            android:id="@+id/btnToggleDevTools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F12 Console"
+            android:backgroundTint="#FF9800"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+    <!-- WebView Màn Hình Web chính -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Bảng F12 DevTools Console -->
+    <LinearLayout
+        android:id="@+id/devToolsDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="vertical"
+        android:background="#1E1E1E"
+        android:visibility="gone">
+
+        <!-- Toolbar F12 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#252526"
+            android:padding="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Console Log (F12)"
+                android:textColor="#00E676"
+                android:textStyle="bold"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnInjectBlocker"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="⚡ Chặn QC & Pop-up"
+                android:textSize="11sp"
+                android:backgroundTint="#D32F2F" />
+        </LinearLayout>
+
+        <!-- Khung hiển thị Log Console -->
+        <ScrollView
+            android:id="@+id/consoleScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:padding="4dp">
+
+            <LinearLayout
+                android:id="@+id/consoleLogsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+        <!-- Thanh nhập lệnh JavaScript -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:background="#252526">
+
+            <EditText
+                android:id="@+id/consoleInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="> Nhập code JS..."
+                android:textColorHint="#666668"
+                android:textColor="#00E676"
+                android:textSize="12sp"
+                android:background="#1E1E1E"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/btnRunConsole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chạy"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
